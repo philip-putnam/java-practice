@@ -1,10 +1,26 @@
 package models;
 
 public class User {
-    public String name;
-    public String[] roles = new String[2];
+    private String name;
+    private String[] roles;
 
-    public void setRoles(String[] newRoles)  {
+    public User(String newName, String[] newRoles) {
+        name = newName;
+        for (String s : roles = newRoles) {
+
+        }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String[] getRoles() {
+        return roles;
+    }
+
+    /* public void setRoles(String[] newRoles)  {
         roles[0] = newRoles[0];
     }
+    */
 }
