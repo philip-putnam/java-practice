@@ -6,9 +6,7 @@ public class User {
 
     public User(String newName, String[] newRoles) {
         name = newName;
-        for (String s : roles = newRoles) {
-
-        }
+        for (String s : roles = newRoles);
     }
 
     public String getName() {

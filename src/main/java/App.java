@@ -1,4 +1,5 @@
 import models.User;
+import static spark.Spark.*;
 
 public class App {
     public static void main(String[] args) {
@@ -14,5 +15,7 @@ public class App {
 
         for (String role : userRoles ) System.out.println(role);
         // System.out.println( employee.roles[0] );
+
+        get("/", (request, response) -> "Hello Friend!");
     }
 }
