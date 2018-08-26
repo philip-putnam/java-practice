@@ -16,6 +16,17 @@ public class App {
         for (String role : userRoles ) System.out.println(role);
         // System.out.println( employee.roles[0] );
 
-        get("/", (request, response) -> "Hello Friend!");
+        get("/", (request, response) ->
+            "<!DOCTYPE html>" +
+                    "<html>" +
+                    "<head>" +
+                    "<title>Hello Friend!</title>" +
+                    "<link rel=stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO' crossorigin='anonymous'>" +
+                    "</head>" +
+                    "<body>" +
+                        "<h1>Hello to you!</h1>" +
+                    "</body>" +
+                    "</html>"
+        );
     }
 }
