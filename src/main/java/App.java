@@ -18,7 +18,8 @@ public class App {
         for (String role : userRoles ) System.out.println(role);
 
         get("/", (request, response) -> {
-            return new ModelAndView(new HashMap(), "hello.hbs");
-                }, new HandlebarsTemplateEngine());
+            Map<String, Object> model = new HashMap<String, Object>();
+            return new ModelAndView(model,"hello.hbs");
+            }, new HandlebarsTemplateEngine());
     }
 }
