@@ -26,5 +26,14 @@ public class App {
             Map<String, Object> model = new HashMap<String, Object>();
             return new ModelAndView(model, "form.hbs");
         }, new HandlebarsTemplateEngine());
+
+        get("/data", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            String recipient = request.queryParams("recipient");
+            String sender = request.queryParams("sender");
+            model.put("recipient", recipient);
+            model.put("sender", sender);
+            return new ModelAndView(model, "data.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }
