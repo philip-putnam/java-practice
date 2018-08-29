@@ -25,7 +25,7 @@ public class App {
 
         get( "/form", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-            return new ModelAndView(model, "form.hbs");
+            return new ModelAndView(model, "welcome.hbs");
         }, new HandlebarsTemplateEngine());
 
         get("/data", (request, response) -> {
@@ -35,6 +35,16 @@ public class App {
             model.put("recipient", recipient);
             model.put("sender", sender);
             return new ModelAndView(model, "data.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/welcome", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+
+            String inputtedUsername = request.queryParams("username");
+            request.session().attribute("username", inputtedUsername);
+            model.put("username", inputtedUsername);
+
+            return new ModelAndView(model, "welcome.hbs");
         }, new HandlebarsTemplateEngine());
     }
 }
