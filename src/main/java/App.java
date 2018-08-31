@@ -2,6 +2,8 @@ import models.User;
 import models.Post;
 import static spark.Spark.*;
 import spark.template.handlebars.HandlebarsTemplateEngine;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import spark.ModelAndView;
@@ -20,6 +22,8 @@ public class App {
 
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
+            ArrayList<Post> posts = Post.getAll();
+            model.put("posts", posts);
             model.put("username", request.session().attribute("username"));
             return new ModelAndView(model,"hello.hbs");
             }, new HandlebarsTemplateEngine());
