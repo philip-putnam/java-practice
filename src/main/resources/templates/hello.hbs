@@ -8,27 +8,6 @@
 <p>Looking forward to seeing you soon. I'll bring you back a souvenir. </p>
 <p>Cheers,</p>
 <p>Travel Enthusiast Jane</p>
-
-<h3>Post List Below</h3>
-
-{{#if posts}}
-    {{#each posts }}
-        <p>Current post: </p>
-        <p>{{ content }}</p>
-    {{/each}}
-{{else}}
-    <p>No posts!</p>
-{{/if}}
-
-<p>Add a new Post: </p>
-
-<form action="/posts/new" method="POST">
-    <label for="content">Post Description: </label>
-    <input id="content" name="content" type="text">
-
-    <button type="submit" class="btn btn-default">Add post</button>
-</form>
-
 {{/partial}}
 
 {{> layout.hbs}}

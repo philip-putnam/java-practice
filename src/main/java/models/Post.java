@@ -16,7 +16,7 @@ public class Post {
     }
 
     public static ArrayList<Post> getAll() {
-        return null;
+        return instances;
     }
 
     public static void clearAllPosts() {

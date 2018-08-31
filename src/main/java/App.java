@@ -22,11 +22,16 @@ public class App {
 
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-            ArrayList<Post> posts = Post.getAll();
-            model.put("posts", posts);
             model.put("username", request.session().attribute("username"));
             return new ModelAndView(model,"hello.hbs");
             }, new HandlebarsTemplateEngine());
+
+        get( "/blog", (req, res) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            ArrayList<Post> posts = Post.getAll();
+            model.put("posts", posts);
+            return new ModelAndView(model, "index.hbs");
+        }, new HandlebarsTemplateEngine());
 
         get( "/form", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
@@ -55,6 +60,9 @@ public class App {
         post("/posts/new", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             String content = request.queryParams("content");
+            Post newPost = new Post(content);
+            model.put("post", newPost);
+            System.out.println(newPost.getContent());
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
     }
