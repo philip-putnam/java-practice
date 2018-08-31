@@ -1,4 +1,5 @@
 import models.User;
+import models.Post;
 import static spark.Spark.*;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import java.util.HashMap;
