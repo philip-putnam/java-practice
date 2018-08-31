@@ -46,5 +46,11 @@ public class App {
 
             return new ModelAndView(model, "welcome.hbs");
         }, new HandlebarsTemplateEngine());
+
+        post("/posts/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            String content = request.queryParams("content");
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }
