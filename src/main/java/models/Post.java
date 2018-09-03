@@ -6,11 +6,13 @@ public class Post {
     private String content;
     private static ArrayList<Post> instances = new ArrayList<>();
     private boolean published;
+    private int id;
 
     public Post(String content) {
         this.content = content;
         this.published = false;
         instances.add(this);
+        this.id = instances.size();
     }
 
     public String getContent() {
