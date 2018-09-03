@@ -33,4 +33,8 @@ public class Post {
     public static void clearAllPosts() {
         instances.clear();
     }
+
+    public int getId() {
+        return id;
+    }
 }
