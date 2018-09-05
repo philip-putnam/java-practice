@@ -55,6 +55,14 @@ public class App {
             return new ModelAndView(model, "post-detail.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("posts/:id/update", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfPostToEdit = Integer.parseInt(req.params("id"));
+            Post editPost = Post.findById(idOfPostToEdit);
+            model.put("editPost", editPost);
+            return new ModelAndView(model, "newpost-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
         post("/welcome", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
 
