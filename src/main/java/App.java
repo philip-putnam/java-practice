@@ -81,5 +81,14 @@ public class App {
             System.out.println(newPost.getContent());
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
+
+        post("/posts/:id/update", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            String newContent = req.queryParams("content");
+            int idOfPostToEdit = Integer.parseInt(req.params("id"));
+            Post editPost = Post.findById(idOfPostToEdit);
+            editPost.update(newContent);
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }
