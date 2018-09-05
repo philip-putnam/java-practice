@@ -47,6 +47,14 @@ public class App {
             return new ModelAndView(model, "data.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get( "/posts/:id", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfPostToFind = Integer.parseInt(req.params("id"));
+            Post foundPost = Post.findById(idOfPostToFind);
+            model.put("post", foundPost);
+            return new ModelAndView(model, "post-detail.hbs");
+        }, new HandlebarsTemplateEngine());
+
         post("/welcome", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
 
