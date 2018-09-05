@@ -26,6 +26,10 @@ public class Post {
         return instances;
     }
 
+    public static Post findById(int id) {
+        return instances.get(id-1);
+    }
+
     public boolean getPublished() {
         return this.published;
     }
