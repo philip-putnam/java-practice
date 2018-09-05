@@ -41,4 +41,8 @@ public class Post {
     public int getId() {
         return id;
     }
+
+    public void update(String content) {
+        this.content = content;
+    }
 }
