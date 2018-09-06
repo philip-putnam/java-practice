@@ -30,16 +30,20 @@ public class Post {
         return instances.get(id-1);
     }
 
-    public boolean getPublished() {
-        return this.published;
-    }
-
     public static void clearAllPosts() {
         instances.clear();
     }
 
+    public boolean getPublished() {
+        return this.published;
+    }
+
     public int getId() {
         return id;
+    }
+
+    public void deletePost() {
+        instances.remove(id-1);
     }
 
     public void update(String content) {
