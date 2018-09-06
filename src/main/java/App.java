@@ -47,6 +47,12 @@ public class App {
             return new ModelAndView(model, "data.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/posts/delete", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            Post.clearAllPosts();
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
+
         get( "/posts/:id", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             int idOfPostToFind = Integer.parseInt(req.params("id"));
@@ -70,8 +76,6 @@ public class App {
             deletePost.deletePost();
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
-
-
 
         post("/welcome", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
